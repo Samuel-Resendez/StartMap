@@ -19,5 +19,9 @@
 	width: 85%
 	margin: auto;
 }
+#piechart {
+  width: 85%;
+  margin: auto;
+}
 
 .leaflet-popup-content { width:auto !important; }
