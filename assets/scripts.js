@@ -2,14 +2,14 @@
 $(document).ready(function() {
 
 
-  var vars = getUrlVars();
-  console.log(vars);
+  var token = getUrlVars();
+  console.log(token);
 
   $.ajax({
     url: "https://simulator-api.db.com:443/gw/dbapi/v1/transactions",
     type: "GET",
     beforeSend: function(xhr) {
-      xhr.setRequestHeader('Authorization',"Bearer "+vars.access_token);
+      xhr.setRequestHeader('Authorization',"Bearer "+token);
     },
     success: function(data) {
       console.log(data);
@@ -22,6 +22,9 @@ $(document).ready(function() {
 function getUrlVars()
 {
   var vars = [], hash;
+  var token = window.location.href.substring(74);
+  var tokens = token.split('&')[0];
+  return tokens;
   var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
   for(var i = 0; i < hashes.length; i++)
   {
