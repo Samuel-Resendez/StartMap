@@ -13,6 +13,44 @@ $(document).ready(function() {
     },
     success: function(data) {
       console.log(data);
+      var database = [];
+      for(var i = 0; i < data.length; i++) {
+        var obj = {
+          "country" : i,
+          "expenditure" : Math.abs(data[i].amount);
+        }
+        database.push(obj);
+      }
+      var chart = AmCharts.makeChart( "chartdiv", {
+        "type": "serial",
+        "theme": "light",
+        "dataProvider": database,
+        "gridAboveGraphs": true,
+        "startDuration": 1,
+        "graphs": [ {
+          "balloonText": "[[category]]: <b>[[value]]</b>",
+          "fillAlphas": 0.8,
+          "lineAlpha": 0.2,
+          "type": "column",
+          "valueField": "expenditure"
+        } ],
+        "chartCursor": {
+          "categoryBalloonEnabled": false,
+          "cursorAlpha": 0,
+          "zoomable": false
+        },
+        "categoryField": "country",
+        "categoryAxis": {
+          "gridPosition": "start",
+          "gridAlpha": 0,
+          "tickPosition": "start",
+          "tickLength": 20
+        },
+        "export": {
+          "enabled": true
+        }
+
+      } );
     },
   })
 
