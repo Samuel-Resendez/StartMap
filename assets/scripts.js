@@ -9,7 +9,11 @@ $(document).ready(function() {
     url: "https://simulator-api.db.com:443/gw/dbapi/v1/transactions",
     type: "GET",
     beforeSend: function(xhr) {
+      if(!token) {
+        token = localStorage.token;
+      }
       xhr.setRequestHeader('Authorization',"Bearer "+token);
+      localStorage.setItem("token",token);
     },
     success: function(data) {
       console.log(data);
