@@ -9,11 +9,10 @@ $(document).ready(function() {
     type: "GET",
     beforeSend: function(xhr) {
       xhr.setRequestHeader('Authorization',"Bearer "+vars.id_token);
-    }
+    },
     success: function(data) {
       console.log(data);
-    }
-
+    },
   })
 
 
