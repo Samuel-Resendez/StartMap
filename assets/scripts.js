@@ -1,7 +1,20 @@
 
 $(document).ready(function() {
-  
-  console.log(getUrlVars());
+
+
+  var vars = getUrlVars();
+
+  $.ajax({
+    url: "https://simulator-api.db.com:443/gw/dbapi/v1/transactions",
+    type: "GET",
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization',"Bearer "+vars.id_token);
+    }
+    success: function(data) {
+      console.log(data);
+    }
+
+  })
 
 
 });
