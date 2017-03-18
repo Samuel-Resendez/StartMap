@@ -15,46 +15,38 @@ $(document).ready(function() {
       console.log(data);
       var database = [];
       var piechartdb = [];
+      var saved_piece = {
+        "country" : "Amount Saved",
+        "visits" : 0,
+      }
+      var spent_piece = {
+        "country" : "Amount Spent",
+        "visits" : 0,
+      }
       for(var i = 0; i < data.length; i++) {
         var obj = {
           "country" : data[i].bookingDate,
           "expenditure" : data[i].amount,
         }
-
+        if(data[i].amount < 0) {
+          spent_piece.visits += Math.abs(data[i].amount);
+        }
+        else {
+          saved_piece.visits += data[i].amount;
+        }
         database.push(obj);
       }
+      piechartdb.push(saved_piece);
+      piechartdb.push(spent_piece);
+      console.log(piechartdb);
       var pieChart = AmCharts.makeChart("piechart", {
         "type": "pie",
         "theme": "light",
         "titles": [ {
-          "text": "Visitors countries",
+          "text": "Money Flow",
           "size": 16
         } ],
-        "dataProvider": [ {
-          "country": "United States",
-          "visits": 7252
-        }, {
-          "country": "China",
-          "visits": 3882
-        }, {
-          "country": "Japan",
-          "visits": 1809
-        }, {
-          "country": "Germany",
-          "visits": 1322
-        }, {
-          "country": "United Kingdom",
-          "visits": 1122
-        }, {
-        "country": "France",
-        "visits": 414
-      }, {
-        "country": "India",
-        "visits": 384
-      }, {
-        "country": "Spain",
-        "visits": 211
-      } ],
+        "dataProvider": piechartdb,
       "valueField": "visits",
       "titleField": "country",
       "startEffect": "elastic",
