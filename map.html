@@ -63,8 +63,15 @@
             //xmlHttp.responseText
 
             var obj = JSON.parse(xmlHttp.responseText);
-            console.log(obj);
+            console.log()
             mymap.setView([obj.current_city.location.latitude, obj.current_city.location.longitude]);
+            for(var i = 0; i < obj.points_of_interest.length; i++) {
+              console.log(obj.points_of_interest[i].location.latitude);
+              L.marker([obj.points_of_interest[i].location.latitude, obj.points_of_interest[i].location.longitude]).addTo(mymap)
+              .bindPopup("<img src=" + obj.points_of_interest[i].main_image + " style='width:30; height: 30;'></img>")
+              .openPopup();
+            }
+
 
           }
         var theUrl = "https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-text?apikey=xbeqpVrsKThP1lXh2TE5UcaOX0MrXUoH&city_name=" + encodeURIComponent(document.getElementById("search_input").value);
