@@ -38,6 +38,7 @@ $(document).ready(function() {
       }
       piechartdb.push(saved_piece);
       piechartdb.push(spent_piece);
+      console.log(piechartdb);
       var pieChart = AmCharts.makeChart("piechart", {
         "type": "pie",
         "theme": "light",
