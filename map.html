@@ -69,7 +69,7 @@
               console.log(obj.points_of_interest[i].location.latitude);
               L.marker([obj.points_of_interest[i].location.latitude, obj.points_of_interest[i].location.longitude]).addTo(mymap)
               .bindPopup(obj.points_of_interest[i].title)
-              .bindPopup("<a target='_blank' style='align: center;' href=" + obj.points_of_interest[i].details.wiki_page_link+ ">"+obj.points_of_interest[i].title+"</a>" + "\n" + "<img src=" + obj.points_of_interest[i].main_image + " id='thumb'></img>")
+              .bindPopup("<a target='_blank' href=" + obj.points_of_interest[i].details.wiki_page_link+ ">"+obj.points_of_interest[i].title+"</a>" + "\n" + "<img src=" + obj.points_of_interest[i].main_image + " id='thumb'></img>")
 
               .openPopup();
             }
