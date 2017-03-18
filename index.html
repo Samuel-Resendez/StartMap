@@ -10,11 +10,27 @@
     <div class="jumbotron">
       <div class="container">
         <h1> Welcome to StartMap </h1>
-        <p><a class="btn btn-primary btn-lg" href="transactions.html" role="button" onclick="login()">Login</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button" onclick="login()">Login</a></p>
         <script>
-        var login = function() {
-          
-        }
+          function login() {
+            var xmlHttp = new XMLHttpRequest();
+              var redirect = encodeURIComponent("https://samuel-resendez.github.io/StartMap/transactions.html");
+              var theUrl = "https://simulator-api.db.com/gw/oidc/authorize?response_type=token&redirect_uri="+ redirect + "&client_id=435eb207-29a0-4b46-9083-8309cd28f457";
+              console.log(theUrl);
+
+            xmlHttp.onreadystatechange = function() {
+              if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+
+              }
+              xmlHttp.responseText
+              window.location = theUrl;
+            console.log(xmlHttp.responseText);
+
+            }
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous
+            xmlHttp.send(null);
+          }
+
         </script>
       </div>
     </div>
