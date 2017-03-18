@@ -12,8 +12,6 @@
         <h1> Welcome to StartMap </h1>
         <p><a class="btn btn-primary btn-lg" role="button" onclick="login()">Login</a></p>
         <script>
-
-
           function login() {
             var xmlHttp = new XMLHttpRequest();
               var redirect = encodeURIComponent("https://samuel-resendez.github.io/StartMap/transactions.html");
@@ -21,7 +19,9 @@
               console.log(theUrl);
 
             xmlHttp.onreadystatechange = function() {
-              if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+              if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+
+              }
               /*xmlHttp.responseText
               window.location = xmlHttp.responseURL;
             console.log(xmlHttp.responseText);
