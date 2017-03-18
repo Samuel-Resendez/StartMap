@@ -28,7 +28,7 @@ $(document).ready(function() {
         "gridAboveGraphs": true,
         "startDuration": 1,
         "graphs": [ {
-          "balloonText": "[[category]]: <b>[[value]]</b>",
+          "balloonText": "[[category]]: <b>[[value]] CHF</b>",
           "fillAlphas": 0.8,
           "lineAlpha": 0.2,
           "type": "column",
