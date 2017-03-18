@@ -16,7 +16,7 @@ $(document).ready(function() {
       var database = [];
       for(var i = 0; i < data.length; i++) {
         var obj = {
-          "country" : i,
+          "country" : data[i].bookingDate,
           "expenditure" : Math.abs(data[i].amount),
         }
         database.push(obj);
