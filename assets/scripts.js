@@ -8,7 +8,7 @@ $(document).ready(function() {
     url: "https://simulator-api.db.com:443/gw/dbapi/v1/transactions",
     type: "GET",
     beforeSend: function(xhr) {
-      xhr.setRequestHeader('Authorization',"Bearer "+vars.id_token);
+      xhr.setRequestHeader('Authorization',"Bearer "+vars.access_token);
     },
     success: function(data) {
       console.log(data);
