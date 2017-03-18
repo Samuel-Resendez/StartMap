@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Points of Interest</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+     <link rel="stylesheet" type="text/css" href="assets/main.css">
+     <script src="/assets/scripts.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></link>
+  </head>
+  <body>
+     <div id="mapid"></div>
+     <script>
+     var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+     L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
+     {
+       attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+       maxZoom: 17,
+       minZoom: 9
+     }).addTo(mymap);
+     </script>
+
+  </body>
+</html>
