@@ -29,10 +29,10 @@ $(document).ready(function() {
           "expenditure" : data[i].amount,
         }
         if(data[i].amount < 0) {
-          spent_piece.size += Math.abs(data[i].amount);
+          spent_piece.visits += Math.abs(data[i].amount);
         }
         else {
-          saved_piece.size += data[i].amount;
+          saved_piece.visits += data[i].amount;
         }
         database.push(obj);
       }
