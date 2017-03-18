@@ -17,11 +17,11 @@ $(document).ready(function() {
       var piechartdb = [];
       var saved_piece = {
         "country" : "Amount Saved",
-        "size" : 0,
+        "visits" : 0,
       }
       var spent_piece = {
         "country" : "Amount Spent",
-        "size" : 0,
+        "visits" : 0,
       }
       for(var i = 0; i < data.length; i++) {
         var obj = {
