@@ -9,3 +9,8 @@
   width: 100% !important;
   height: 300px !important;
 }
+
+#content {
+	width: 85%
+	margin: auto;
+}
