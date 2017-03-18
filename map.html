@@ -26,9 +26,9 @@
         <div class="col-md-1"></div>
          <div class="col-md-6">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Where are you going?">
+              <input type="text" class="form-control" id="search_input" placeholder="Where are you going?">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
+                <button class="btn btn-default" type="button"  onclick="findPlaces()">Go!</button>
               </span>
             </div>
         </div>
@@ -52,6 +52,25 @@
           .setLatLng(e.latlng)
           .setContent("You clicked the map at " + e.latlng.toString())
           .openOn(mymap);
+        }
+
+        function findPlaces() {
+          console.log(document.getElementById("search_input").value);
+          var xmlHttp = new XMLHttpRequest();
+          xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            //Here is where its made
+            //xmlHttp.responseText
+
+            var obj = JSON.parse(xmlHttp.responseText);
+            console.log(obj);
+            mymap.setView([obj.current_city.location.latitude, obj.current_city.location.longitude]);
+
+          }
+        var theUrl = "https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-text?apikey=xbeqpVrsKThP1lXh2TE5UcaOX0MrXUoH&city_name=" + encodeURIComponent(document.getElementById("search_input").value);
+        xmlHttp.open("GET", theUrl, true); // true for asynchronous
+        xmlHttp.send(null);
+
         }
        </script>
     <
