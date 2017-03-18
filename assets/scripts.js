@@ -3,6 +3,7 @@ $(document).ready(function() {
 
 
   var vars = getUrlVars();
+  console.log(vars);
 
   $.ajax({
     url: "https://simulator-api.db.com:443/gw/dbapi/v1/transactions",
