@@ -43,7 +43,7 @@ $(document).ready(function() {
         "type": "pie",
         "theme": "light",
         "titles": [ {
-          "text": "Visitors countries",
+          "text": "Money Flow",
           "size": 16
         } ],
         "dataProvider": piechartdb,
