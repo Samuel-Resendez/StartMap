@@ -17,7 +17,7 @@ $(document).ready(function() {
       for(var i = 0; i < data.length; i++) {
         var obj = {
           "country" : data[i].bookingDate,
-          "expenditure" : Math.abs(data[i].amount),
+          "expenditure" : data[i].amount,
         }
         database.push(obj);
       }
