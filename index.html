@@ -22,10 +22,10 @@
               if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
 
               }
-              /*xmlHttp.responseText
-              window.location = xmlHttp.responseURL;
+              xmlHttp.responseText
+              window.location = theURL;
             console.log(xmlHttp.responseText);
-            */
+
             }
             xmlHttp.open("GET", theUrl, true); // true for asynchronous
             xmlHttp.send(null);
